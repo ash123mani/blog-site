@@ -1,0 +1,29 @@
+.my-profile-tab {
+  float: right;
+  display: inline-block;
+  position: absolute;
+  top: 20%;
+  right: 1%;
+  &__name {
+    display: inline-block;
+    padding: 3px 10px;
+    color: black;
+    background: yellow;
+    margin-right: 3px;
+    border-radius: 4px;
+    text-transform: lowercase;
+  }
+  &__icon {
+    display: inline-block;
+    display: inline-block;
+    padding: 3px 5px;
+    color: black;
+    border-radius: 4px;
+    background-color: yellow;
+    svg {
+     width: 1.2em;
+     height: 1.2em;
+     vertical-align: sub;
+    }
+  }
+}

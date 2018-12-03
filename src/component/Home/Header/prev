@@ -1,0 +1,106 @@
+import React from 'react';
+import { Icon } from 'antd';
+import Register from '../../Register';
+import Login from '../../Login';
+
+import './scss/index.scss';
+
+const Header = () => {
+  let classes = ['header-content'];
+  function dropDownBar() {}
+  return (
+    <div className="header">
+      <div className="header-content">
+        <a href="/" className="header__link header-content__home">
+          Home
+        </a>
+        <a href="/finance" className="header__link">
+          Finance
+        </a>
+        <a href="/vedanata" className="header__link">
+          Vedanta
+        </a>
+        <a href="/technology" className="header__link">
+          Web Tech
+        </a>
+        <div className="header__dropdown">
+          <button className="header__dropdown-button">
+            More
+            <Icon className="header__dropdown-icon" type="caret-down" theme="outlined" />{' '}
+          </button>
+          <div className="header__dropdown-content">
+            <a href="#about" className="header__dropdown-content--link">
+              About
+            </a>
+            <a href="#contact" className="header__dropdown-content--link">
+              Contact Us
+            </a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars" />
+          </a>
+        </div>
+        <Register />
+        <Login />
+      </div>
+    </div>
+  );
+};
+
+export default Header;
+
+
+
+import React from 'react';
+import { Icon } from 'antd';
+import Login from '../../Login';
+
+import './scss/index.scss';
+
+const Header = () => {
+  let classes = ['header-content'];
+
+  function responsiveBar(e) {
+    e.preventDefault();
+    classes.push('responsive');
+  }
+
+  return (
+    <div className="header">
+      <div className={classes.join('')}>
+        <a href="/" className="header__link">
+          Home
+        </a>
+        <a href="/finance" className="header__link">
+          Finance
+        </a>
+        <a href="/vedanata" className="header__link">
+          Vedanta
+        </a>
+        <a href="/technology" className="header__link">
+          Web Tech
+        </a>
+        <div className="header__dropdown">
+          <button className="header__dropdown-button">
+            More
+            <Icon className="header__dropdown-icon" type="caret-down" theme="outlined" />{' '}
+          </button>
+          <div className="header__dropdown-content">
+            <a href="#about" className="header__dropdown-content--link">
+              About
+            </a>
+            <a href="#contact" className="header__dropdown-content--link">
+              Contact Us
+            </a>
+          </div>
+          <a href="" className="icon" onClick={responsiveBar}>
+            // &#9776; //{' '}
+          </a>
+        </div>
+        <Login />
+      </div>
+    </div>
+  );
+};
+
+export default Header;
