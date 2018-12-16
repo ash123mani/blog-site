@@ -1,0 +1,28 @@
+.options-content {
+  .options {
+    background-color: #f1f1f1;
+    margin-bottom: 30px;
+  }
+  p {
+    padding: 10px 20px;
+    font-weight: 550;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  .active {
+    background-color: black;
+    color: yellow;
+    font-weight: 550;
+    border: 1px solid #f1f1f1;
+  }
+
+  .active::after {
+    content: '' !important;
+    border-width: 10px 20px 10px 0px !important;
+    position: absolute;
+    border-style: solid;
+    height: 0;
+    border-color: transparent #f1f1f1 transparent;
+    left: 23.6%;
+  }
+}

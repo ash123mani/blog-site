@@ -10,20 +10,67 @@
     color: black;
     background: yellow;
     margin-right: 3px;
-    border-radius: 4px;
-    text-transform: lowercase;
+    text-transform: capitalize;
   }
   &__icon {
     display: inline-block;
     display: inline-block;
     padding: 3px 5px;
     color: black;
-    border-radius: 4px;
     background-color: yellow;
     svg {
-     width: 1.2em;
-     height: 1.2em;
-     vertical-align: sub;
+      width: 1.2em;
+      height: 1.2em;
+      vertical-align: sub;
     }
+  }
+  .drop-down {
+    &__content {
+      margin-top: 13px;
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      right: 0px;
+      cursor: pointer;
+    }
+
+    &__link-wrapper {
+      position: relative;
+      color: black;
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: black;
+    }
+    &__link-icon {
+      position: absolute;
+      top: 30%;
+      left: 8px;
+      font-weight: 550;
+    }
+    span {
+      margin-left: 12px;
+    }
+    &__link-wrapper:hover {
+      background-color: black;
+      color: yellow;
+      font-weight: 550;
+      border: 1px solid #f1f1f1;
+    }
+  }
+  &:hover .drop-down__content {
+    display: block;
+  }
+  &:hover .drop-down::before {
+    content: '' !important;
+    border-width: 0px 10px 13px !important;
+    position: absolute;
+    border-style: solid;
+    height: 0;
+    border-color: transparent transparent #f1f1f1;
+    right: 5px;
   }
 }

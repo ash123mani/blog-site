@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from './Header';
+import HeadeContainer from './../../containers/HeaderContainer';
 import SlideShow from './SlideShow';
 
 const Home = () => {
-	return (
-		<div>
-			<Header />
-			<SlideShow />
-		</div>
-	);
+  return (
+    <div>
+      <HeadeContainer />
+      <SlideShow />
+    </div>
+  );
 };
 
 export default Home;

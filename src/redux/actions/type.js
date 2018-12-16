@@ -1,0 +1,11 @@
+// loginActions
+export const LOGIN_REQUEST_BEGIN = 'LOGIN_REQUEST_BEGIN';
+export const LOGIN_REQUEST_SUCCESS = 'LOGIN_REQUEST_SUCCESS';
+export const LOGIN_REQUEST_FAILURE = 'LOGIN_REQUEST_FAILURE';
+
+export const USER_DETAILS = 'USER_DETAILS';
+
+export const SET_ERROR = 'SET_ERROR';
+export const REMOVE_ERROR = 'REMOVE_ERROR';
+
+export const ACTIVE_TAB = 'ACTIVE_TAB';

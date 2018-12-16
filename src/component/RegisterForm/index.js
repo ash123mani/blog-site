@@ -12,7 +12,7 @@ const RegisterForm = props => {
 
   return (
     <div className="register-form">
-      <p>Create your student account</p>
+      <div className="register-form__tag">Create your student account</div>
       <form onSubmit={handleSubmit}>
         <div className="register-form__name-input">
           <TextInput
@@ -25,7 +25,6 @@ const RegisterForm = props => {
             onBlur={handleBlur}
             error={dirty && touched.firstName && errors.firstName}
           />
-          <br />
           <TextInput
             type="text"
             name="lastName"
@@ -37,7 +36,6 @@ const RegisterForm = props => {
             error={dirty && touched.lastName && errors.lastName}
           />
         </div>
-        <br />
         <TextInput
           type="email"
           name="email"
@@ -48,7 +46,6 @@ const RegisterForm = props => {
           onBlur={handleBlur}
           error={dirty && touched.email && errors.email}
         />
-        <br />
         <TextInput
           type="text"
           name="contact"
@@ -59,7 +56,6 @@ const RegisterForm = props => {
           onBlur={handleBlur}
           error={dirty && touched.contact && errors.contact}
         />
-        <br />
         <TextInput
           type="password"
           name="password"
@@ -69,7 +65,6 @@ const RegisterForm = props => {
           onBlur={handleBlur}
           error={dirty && touched.password && errors.password}
         />
-        <br />
         <div className="register-form__button">
           <button
             name="reset"
@@ -134,7 +129,9 @@ const formikEnhancer = withFormik({
             contact: payload.contact,
             password: payload.password
           })
-          .then(res => console.log('res is', res))
+          .then(res => {
+            setErrors({ email: 'Email already taken.' });
+          })
           .catch(err => console.log(err));
         setSubmitting(true);
         alert(`Submitted with Email ${payload.email}`);

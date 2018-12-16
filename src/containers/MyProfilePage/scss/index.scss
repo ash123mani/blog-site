@@ -1,0 +1,38 @@
+.my-profile {
+  padding: 40px 100px;
+  &__container {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    padding: 10px 10px;
+    &--options {
+      margin-right: 30px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      color: black;
+      .name {
+        padding: 20px 20px;
+        background-color: #f1f1f1;
+        span {
+          font-weight: 550;
+        }
+      }
+    }
+    &--details {
+      background-color: #f1f1f1;
+      flex-grow: 2;
+      color: black;
+      box-shadow: 2px -2px 2px 2px #9a50d254;
+    }
+    // &--details::before {
+    //   // content: '' !important;
+    //   // border-width: 13px 10px 13px 10px !important;
+    //   // position: absolute;
+    //   // border-style: solid;
+    //   // height: 0;
+    //   // border-color: transparent transparent red;
+    //   // right: 5px;
+    // }
+  }
+}

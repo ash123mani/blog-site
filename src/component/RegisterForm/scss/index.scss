@@ -1,6 +1,6 @@
 .register-form {
-  padding: 20px 40px;
-  p {
+  padding: 60px;
+  &__tag {
     font-size: 34px;
     font-weight: 700;
     line-height: 1.3;
@@ -10,9 +10,6 @@
   &__name-input {
     display: flex;
     justify-content: space-between;
-    input[name='firstName'] {
-      // margin-right: 40px;
-    }
   }
   .input-group {
     width: 100%;
@@ -25,6 +22,7 @@
     box-shadow: 0 2px 2px 0 rgba(46, 60, 73, 0.05);
     border-radius: 2px;
     color: #2e3d49;
+    flex-grow: 0.4;
   }
   &__button {
     display: flex;
@@ -70,5 +68,8 @@
   }
   .text-input--error input {
     border: 0.5px solid #f53a3a;
+  }
+  .first-name__space {
+    flex-grow: 0.4;
   }
 }

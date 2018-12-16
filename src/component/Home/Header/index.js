@@ -5,11 +5,7 @@ import MyProfileTab from '../../MyProfileTab';
 
 import './scss/index.scss';
 
-const Header = () => {
-  var state = {
-    isLogin: false
-  };
-
+const Header = props => {
   return (
     <div className="header">
       <div className="header-content">
@@ -19,12 +15,12 @@ const Header = () => {
         <a href="/finance" className="header__link">
           Finance
         </a>
-        <a href="/vedanata" className="header__link">
+        {/* <a href="/vedanata" className="header__link">
           Vedanta
         </a>
         <a href="/technology" className="header__link">
           Web Tech
-        </a>
+        </a> */}
         <div className="header__dropdown">
           <button className="header__dropdown-button">
             More
@@ -38,11 +34,8 @@ const Header = () => {
               Contact Us
             </a>
           </div>
-          {/* <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars" />
-          </a> */}
         </div>
-        {state.isLogin ? <MyProfileTab /> : <LoginButton />}
+        {props.isAuthenticated ? <MyProfileTab user={props.user} /> : <LoginButton />}
       </div>
     </div>
   );

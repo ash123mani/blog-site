@@ -1,15 +1,17 @@
 import React from 'react';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import TextInput from '../TextInput';
+import { loginRequest } from './../../redux/actions/loginActions';
 
 const LoginForm = props => {
   const { values, touched, errors, dirty, handleChange, handleBlur, handleReset, handleSubmit, isSubmitting } = props;
   return (
     <div className="register-form">
-      <p>Sign In to your account</p>
+      <div className="register-form__tag">Sign In to your account</div>
       <form onSubmit={handleSubmit}>
         <TextInput
           type="email"
@@ -56,7 +58,7 @@ const LoginForm = props => {
   );
 };
 
-const formikEnhancer = withFormik({
+const FormikEnhancer = withFormik({
   mapPropsToValues({ email, password }) {
     return {
       email: '',
@@ -69,33 +71,35 @@ const formikEnhancer = withFormik({
       .required('Email is required'),
     password: Yup.string().required('Password is required')
   }),
-  handleSubmit(payload, { resetForm, setSubmitting, setErrors }) {
-    console.log('Data submitted by user', payload);
-    setTimeout(() => {
-      if (payload.email === 'ashuma2721@gmail.com' && payload.password === 'password') {
-        setErrors({ password: 'Email or Password is wrong' });
-      } else {
-        axios
-          .post('http://localhost:3001/login', {
-            email: payload.email,
-            password: payload.password
-          })
-          .then(res => {
-            if (res.data.status === 200) {
-              alert(`${res.data.message}`);
-            } else {
-              return Promise.reject(res);
-            }
-          })
-          .catch(err => {
-            console.log('inise catch', err);
-            setErrors({ password: `${err.data.message}` });
-          });
-        setSubmitting(false);
+  handleSubmit(payload, { props, resetForm, setSubmitting, setErrors }) {
+    props.loginRequest(
+      {
+        email: payload.email,
+        password: payload.password
+      },
+      () => {
+        setTimeout(() => {
+          props.history.push('/');
+        }, 1000);
       }
-    }, 2000);
+    );
+    setSubmitting(false);
     resetForm();
-  }
+  },
+  displayName: 'BasicForm'
 });
 
-export default formikEnhancer(LoginForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    loginRequest: (user, callback) => dispatch(loginRequest(user, callback))
+  };
+};
+
+const FormikEnhancedForm = FormikEnhancer(LoginForm);
+
+const RoutedForm = withRouter(FormikEnhancedForm);
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(RoutedForm);

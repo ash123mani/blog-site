@@ -3,7 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './component/Home';
 import Vedanta from './component/Vedanta';
 import AuthenticationForm from './component/AuthenticationForm';
-import MyProfilePage from './component/MyProfilePage';
+import MyProfilePage from './containers/MyProfilePage';
+import AlertBoxContainer from './containers/AlertBoxContainer';
+
 import './App.scss';
 
 class App extends Component {
@@ -16,6 +18,7 @@ class App extends Component {
           <Route path="/vedanta" component={Vedanta} />
           <Route path="/myprofile" component={MyProfilePage} />
         </Switch>
+        <AlertBoxContainer />
       </div>
     );
   }

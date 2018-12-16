@@ -1,0 +1,16 @@
+.profile-page {
+  padding: 20px 60px !important;
+  &__content {
+    text-shadow: 1px 1px 3px yellowgreen;
+  }
+  // .profile-page::before {
+  //   border-left-width: 0px;
+  //   border-right-width: 10px;
+  //   border-top-width: 13px;
+  //   border-bottom-width: 13px;
+  //   border-style: solid;
+  //   border-color: transparent transparent red;
+  //   content: '' !important;
+  //   position: absolute;
+  // }
+}
